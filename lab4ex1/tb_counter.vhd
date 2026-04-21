@@ -60,26 +60,26 @@ begin
    -----------------------------------
    monitor: process
    begin
-      -- wait for some time to ignore initialisation [cite: 313]
+     
       wait for 1.2 us;
       
-      -- Test 1: Check Asynchronous Preset [cite: 124, 314]
+      -- Test 1: Check Asynchronous Preset 
       assert (count = "11111111") report "ERROR - counter did not preset!" severity FAILURE;
       
-      -- Test 2: Check Counting Up [cite: 315]
+      -- Test 2: Check Counting Up 
       wait for 1 us; -- 2.2 us
       assert (count = "00000000") report "ERROR - should be counting up" severity FAILURE;
       
-      -- Test 3: Check Counting Down (Required for Assignment 4.1) [cite: 124]
-      -- Move to a point in time after the stimulus has set 'up' to '0' [cite: 310]
+      -- Test 3
+       
       wait for 4.2 us; -- 6.4 us
       assert (count = "00000010") report "ERROR - should be counting down" severity FAILURE;
       wait for 1 us;  -- 7.4 us
       assert (count = "00000001") report "ERROR - should be counting down" severity FAILURE;
 	   
-      -- Required Success Message: Must contain "OK" in capital letters 
+      
       assert FALSE report "OK. All tests passed." severity NOTE;
-      wait; -- stop process from looping [cite: 323]
+      wait; 
    end process;
 
 
